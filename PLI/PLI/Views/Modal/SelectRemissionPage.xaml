@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="PLI.Views.Modal.SelectRemissionPage"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Frame Margin="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" 
+               CornerRadius="25" BorderColor="Black">
+            <StackLayout Orientation="Vertical" VerticalOptions="Fill">
+                <ListView ItemsSource="{Binding SourceRemission}" RowHeight="180" VerticalOptions="FillAndExpand" SelectionMode="None">
+                    <ListView.Header>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Remisiones a entregar" FontSize="Medium" FontAttributes="Bold" />
+                            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="Gray"/>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid HorizontalOptions="FillAndExpand" Margin="5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Switch Grid.Column="0" Grid.Row="0" IsToggled="{Binding IsChecked}" IsEnabled="{Binding IsEnabled}"/>
+
+                                    <Label Grid.Row="0" Grid.Column="1" Text="Remisión" FontAttributes="Bold"></Label>
+                                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding number}"></Label>
+
+                                    <ListView ItemsSource="{Binding products}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                                        <ListView.Header>
+                                            <StackLayout Orientation="Vertical">
+                                                <Label Text="Productos"/>
+                                            </StackLayout>
+                                        </ListView.Header>
+                                        <ListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextCell Text="{Binding name}" Detail="{Binding load}" TextColor="Black" DetailColor="Gray"/>
+                                            </DataTemplate>
+                                        </ListView.ItemTemplate>
+                                    </ListView>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout VerticalOptions="End">
+                    <Button Text="Continuar" BackgroundColor="{DynamicResource PrimaryBlue}" CornerRadius="25" 
+                                    WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" 
+                                    TextColor="White" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>

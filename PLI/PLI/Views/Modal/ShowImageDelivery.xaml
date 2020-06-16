@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    x:Class="PLI.Views.Modal.ShowImageDelivery">
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Frame Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" 
+               CornerRadius="25" BorderColor="Black">
+                <StackLayout Orientation="Vertical" VerticalOptions="Fill">
+                <Image HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Source="{Binding itemSelectedPhoto.image}"></Image>
+                    <StackLayout VerticalOptions="End">
+                        <Button Text="Eliminar" BackgroundColor="{DynamicResource PrimaryBlue}" CornerRadius="25" 
+                                    WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" 
+                                    TextColor="White" Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:abstractions="clr-namespace:LeoJHarris.FormsPlugin.Abstractions;assembly=LeoJHarris.FormsPlugin.Abstractions"
+    x:Class="PLI.Views.Modal.IncidencePage">
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+
+        <StackLayout Grid.Column="0" Grid.Row="0">
+            <Frame Margin="30" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" CornerRadius="25" BorderColor="Black">
+                <StackLayout>
+                    <Label Text="Enviar incidencia" TextColor="Gray" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontSize="Large" 
+                           FontAttributes="Bold" Margin="20"/>
+
+                    <StackLayout>
+                        <Picker ItemsSource="{Binding SourceIncidences}" HorizontalOptions="FillAndExpand" SelectedItem="{Binding SelectedIncidence}"
+                                ItemDisplayBinding="{Binding name}" Title="Selecciona tu incidencia"></Picker>
+                        <Label Text="Por favor seleccione una incidencia" IsVisible="{Binding bIncidenceError}" TextColor="Red" />
+                    </StackLayout>
+
+                    <StackLayout Margin="0,10,0,10">
+                        <Editor Text="{Binding Comments}" HorizontalOptions="FillAndExpand" HeightRequest="200" Placeholder="Ingrese sus comentarios"/>
+                    </StackLayout>
+
+                    <StackLayout HeightRequest="80" Margin="20">
+                        <Button Text="Continuar" BackgroundColor="{DynamicResource PrimaryBlue}" CornerRadius="25" 
+                                    WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" 
+                                    TextColor="White" Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Grid.Column="0" Grid.Row="0" Opacity="0.4" BackgroundColor="Black" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Color="White" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
+        </StackLayout>
+
+    </Grid>
+</pages:PopupPage>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="PLI.Views.HomePage"
+             Title="PLI Inicio">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text ="Detalles" Priority="0" Order="Secondary"/>
+        <ToolbarItem Text ="Ruta" Priority="0" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="85"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Column="0" Grid.Row="1" HorizontalOptions="Fill">
+                <Label Text="Embarque" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="Fill">
+                <Label Text="{Binding txtShipment}" FontSize="Large" HorizontalTextAlignment="Start"></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="0" Grid.Row="2" HorizontalOptions="Fill">
+                <Label Text="Hora Inicio" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="End"></Label>
+            </StackLayout>
+            <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill">
+                <Label Text="{Binding txtInitialTime, StringFormat='{0:HH:mm:ss}'}" FontSize="Large" HorizontalTextAlignment="Start"></Label>
+            </StackLayout>
+            <StackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                <SwipeView Margin="20,0,20,20">
+                    <SwipeView.LeftItems>
+                        <SwipeItems Mode="Execute">
+                            <SwipeItemView Invoked="SwipeItem_Invoked">
+                                <Frame HeightRequest="60" WidthRequest="300" BackgroundColor="Green" CornerRadius="25">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </Frame>
+                            </SwipeItemView>
+                        </SwipeItems>
+                    </SwipeView.LeftItems>
+                    <SwipeView.Content >
+                        <Frame HeightRequest="80" WidthRequest="300" BackgroundColor="{Binding cNext}" CornerRadius="25">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="swipe.png" Grid.Column="0"/>
+                                <Label Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding lblBntNext}" TextColor="White" 
+                                       FontSize="Medium" FontAttributes="Bold"/>
+                            </Grid>
+                        </Frame>
+                    </SwipeView.Content>
+                </SwipeView>
+            </StackLayout>
+            <StackLayout Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2">
+                <SwipeView Margin="20,0,20,20">
+                    <SwipeView.LeftItems>
+                        <SwipeItems Mode="Execute">
+                            <SwipeItemView Invoked="SwipeItemView_Invoked">
+                                <Frame HeightRequest="60" WidthRequest="300" BackgroundColor="Orange" CornerRadius="25">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </Frame>
+                            </SwipeItemView>
+                        </SwipeItems>
+                    </SwipeView.LeftItems>
+                    <SwipeView.Content>
+                        <Frame HeightRequest="60" WidthRequest="300" BackgroundColor="{Binding cBreak}" CornerRadius="25">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="swipe.png" Grid.Column="0"/>
+                                <Label Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Text="Descanso" TextColor="White"
+                                       FontSize="Medium" FontAttributes="Bold"/>
+                            </Grid>
+                        </Frame>
+                    </SwipeView.Content>
+                </SwipeView>
+            </StackLayout>
+            <StackLayout Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2">
+                <SwipeView Margin="20,0,20,20">
+                    <SwipeView.LeftItems>
+                        <SwipeItems Mode="Execute">
+                            <SwipeItemView Invoked="SwipeItemView_Invoked_1">
+                                <Frame HeightRequest="60" WidthRequest="300" BackgroundColor="Red" CornerRadius="25">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="50"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </Frame>
+                            </SwipeItemView>
+                        </SwipeItems>
+                    </SwipeView.LeftItems>
+                    <SwipeView.Content >
+                        <Frame HeightRequest="60" WidthRequest="300" BackgroundColor="{Binding cIncident}" CornerRadius="25">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="swipe.png" Grid.Column="0"/>
+                                <Label Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Text="Incidencia" TextColor="White"
+                                       FontSize="Medium" FontAttributes="Bold"/>
+                            </Grid>
+                        </Frame>
+                    </SwipeView.Content>
+                </SwipeView>
+            </StackLayout>
+
+            <StackLayout Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Opacity="0.8" BackgroundColor="Black"
+                         IsVisible="{Binding ChangeTender}">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label Text="Para que se le asigne un embarque es necesario que inicie a ofertar, por favor presione el boton de ofertar!" 
+                           TextColor="White" Margin="30" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+                    <Button Text="Ofertar" BackgroundColor="#08207B" CornerRadius="25" WidthRequest="200" 
+                            HorizontalOptions="Center" TextColor="White" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Opacity="0.8" BackgroundColor="Black"
+                         IsVisible="{Binding UserBreak}">
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Label Text="En este momento se encuentra descansando, ¿Desea continuar en ruta continuar?" 
+                           TextColor="White" Margin="30" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+                    <Button Text="Continuar" BackgroundColor="#08207B" CornerRadius="25" WidthRequest="200" 
+                            HorizontalOptions="Center" TextColor="White" Clicked="Button_Clicked_2"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Opacity="0.8" BackgroundColor="Black"
+                         IsVisible="{Binding ActiveTender}">
+                <Label Text="¡OFERTANDO!" TextColor="White" Margin="30" FontSize="Large" HorizontalTextAlignment="Center"  
+                       VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+
+            <StackLayout Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Opacity="0.8" BackgroundColor="Black"
+                         IsVisible="{Binding ActiveReturn}">
+                <StackLayout VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                    <Label Text="Su estatus es regreso a planta ¿Que acción desea realizar?" 
+                           TextColor="White" Margin="30" FontSize="Medium" HorizontalTextAlignment="Center"></Label>
+                    <StackLayout VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                        <Button Text="Ofertar" BackgroundColor="#08207B" CornerRadius="25" WidthRequest="200" 
+                            HorizontalOptions="Center" TextColor="White" Clicked="Button_Clicked"/>
+                        <Button Text="Finalizar" BackgroundColor="#08207B" CornerRadius="25" WidthRequest="200" 
+                            HorizontalOptions="Center" TextColor="White" Clicked="Button_Clicked_1"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Column="0" Grid.Row="0" Grid.RowSpan="9" Grid.ColumnSpan="2" Opacity="0.4" 
+                         BackgroundColor="Black" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Color="White" 
+                                   IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

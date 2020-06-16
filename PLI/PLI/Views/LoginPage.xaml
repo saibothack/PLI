@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:abstractions="clr-namespace:LeoJHarris.FormsPlugin.Abstractions;assembly=LeoJHarris.FormsPlugin.Abstractions"
+             xmlns:video="clr-namespace:FormsVideoLibrary"
+             mc:Ignorable="d"
+             x:Class="PLI.Views.LoginPage">
+    <ContentPage.Content>
+
+        <AbsoluteLayout>
+
+            <video:VideoPlayer AbsoluteLayout.LayoutFlags="HeightProportional" AbsoluteLayout.LayoutBounds="0,0,444,1" VerticalOptions="Fill" AutoPlay="True">
+                <video:VideoPlayer.Source>
+                    <video:ResourceVideoSource>
+                        <video:ResourceVideoSource.Path>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="iOS" Value="video.mp4" />
+                                <On Platform="Android" Value="video.mp4" />
+                            </OnPlatform>
+                        </video:ResourceVideoSource.Path>
+                    </video:ResourceVideoSource>
+                </video:VideoPlayer.Source>
+            </video:VideoPlayer>
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" Opacity="0.4" BackgroundColor="Black">
+            </StackLayout>
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,0.5">
+                <Grid HorizontalOptions="FillAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="250" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" VerticalOptions="FillAndExpand">
+                        <Frame BackgroundColor="White" Margin="20"  CornerRadius="25" VerticalOptions="FillAndExpand">
+                            <StackLayout Orientation="Vertical" Margin="0,0,0,20">
+                                <StackLayout HeightRequest="80">
+                                    <abstractions:EnhancedEntry x:Name="txtUser" Text="{Binding sUser}" LeftIcon="user" Placeholder="Usuario" FontSize="Title"
+                                                                VerticalOptions="Center"/>
+                                    <Label Text="Ingrese su usuario" IsVisible="{Binding bUserError}" TextColor="Gray" />
+                                </StackLayout>
+                                <StackLayout HeightRequest="80">
+                                    <abstractions:EnhancedEntry x:Name="txtPassword" Text="{Binding sPassword}" LeftIcon="password" Placeholder="Contraseña"  
+                                                                FontSize="Title" VerticalOptions="Center" IsPassword="True"/>
+                                    <Label Text="Ingrese su contraseña" IsVisible="{Binding bPasswordError}" TextColor="Gray" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" 
+                                     VerticalOptions="EndAndExpand">
+                        <Button Text="Iniciar sesión" BackgroundColor="{DynamicResource PrimaryBlue}" CornerRadius="25" 
+                                    WidthRequest="200" VerticalOptions="Center" HorizontalOptions="Center" 
+                                    TextColor="White" Clicked="Button_Clicked"/>
+                    </StackLayout>
+                </Grid>
+                
+                <StackLayout Grid.Row="2" Grid.Column="0">
+                    <Button Text="¿Olvidaste tus datos?" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"  
+                                BackgroundColor="Transparent" Margin="15" TextColor="White" 
+                                FontSize="Subtitle" Command="{Binding CmdRecuperar}"/>
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" Opacity="0.4" BackgroundColor="Black" IsVisible="{Binding IsBusy}">
+            </StackLayout>
+
+            <ActivityIndicator AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,.25,.25" Color="White" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"></ActivityIndicator>
+
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
