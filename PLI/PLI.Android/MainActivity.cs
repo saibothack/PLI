@@ -11,7 +11,7 @@ using PLI.Views;
 
 namespace PLI.Droid
 {
-    [Activity(Label = "PLI", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "PLI", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -29,7 +29,7 @@ namespace PLI.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             LeoJHarris.FormsPlugin.Droid.EnhancedEntryRenderer.Init(this);
-            CrossMediaManager.Current.Init(this);
+            
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             //allowing the device to change the screen orientation based on the rotation 
@@ -51,7 +51,6 @@ namespace PLI.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }

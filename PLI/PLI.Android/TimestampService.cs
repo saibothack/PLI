@@ -41,10 +41,10 @@ namespace PLI.Droid
             
             NotificationManager = (NotificationManager)GetSystemService(NotificationService);
 
-            if (Build.VERSION.SdkInt >= Build.VERSION_CODES.O)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat)
             {
                 string name = GetString(Resource.String.app_name);
-                NotificationChannel mChannel = new NotificationChannel(ChannelId, name, NotificationManager.ImportanceDefault);
+                NotificationChannel mChannel = new NotificationChannel(ChannelId, name, NotificationImportance.High);
                 NotificationManager.CreateNotificationChannel(mChannel);
             }
 
@@ -98,7 +98,7 @@ namespace PLI.Droid
                 .SetTicker(text)
                 .SetWhen(JavaSystem.CurrentTimeMillis());
 
-            if (Build.VERSION.SdkInt >= Build.VERSION_CODES.O)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Kitkat)
             {
                 builder.SetChannelId(ChannelId);
             }

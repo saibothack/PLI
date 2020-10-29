@@ -7,8 +7,8 @@
              x:Class="PLI.Views.HomePage"
              Title="PLI Inicio">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text ="Detalles" Priority="0" Order="Secondary"/>
-        <ToolbarItem Text ="Ruta" Priority="0" Order="Secondary"/>
+        <ToolbarItem Text ="Detalles" Priority="0" Order="Secondary" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text ="Ruta" Priority="0" Order="Secondary" Clicked="ToolbarItem_Clicked_1"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

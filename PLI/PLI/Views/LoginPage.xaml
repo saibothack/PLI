@@ -11,7 +11,7 @@
 
         <AbsoluteLayout>
 
-            <video:VideoPlayer AbsoluteLayout.LayoutFlags="HeightProportional" AbsoluteLayout.LayoutBounds="0,0,444,1" VerticalOptions="Fill" AutoPlay="True">
+            <video:VideoPlayer AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1.13,1.25" VerticalOptions="Fill" AutoPlay="True">
                 <video:VideoPlayer.Source>
                     <video:ResourceVideoSource>
                         <video:ResourceVideoSource.Path>

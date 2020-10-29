@@ -107,7 +107,8 @@ namespace PLI.ViewModels
 
                 var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
                 {
-                    PhotoSize = PhotoSize.Medium,
+                    PhotoSize = PhotoSize.Small,
+                    CompressionQuality = 90
                 });
 
                 if (file == null)

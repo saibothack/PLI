@@ -4,7 +4,7 @@ namespace PLI.Utilities
 {
     public class Constants
     {
-        public static string urlApi = "http://webpli.cloudapp.net/api/";
+        public static string urlApi = "http://sysware.westus.cloudapp.azure.com/api/";
         public const string ACTION_START_SERVICE = "ServicesDemo3.action.START_SERVICE";
         public const string ACTION_STOP_SERVICE = "ServicesDemo3.action.STOP_SERVICE";
 

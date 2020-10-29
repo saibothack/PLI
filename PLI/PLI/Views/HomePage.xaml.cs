@@ -69,5 +69,15 @@ namespace PLI.Views
             IErrorHandler errorHandler = null;
             viewModel.CommandBreakEnd.ExecuteAsync().FireAndForgetSafeAsync(errorHandler);
         }
+
+        void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
+        {
+
+        }
+
+        void ToolbarItem_Clicked_1(System.Object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
